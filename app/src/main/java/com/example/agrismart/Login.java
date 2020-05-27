@@ -11,25 +11,28 @@ import android.widget.Button;
 
 public class Login extends AppCompatActivity {
 
-    public Button login_button;
+    private Button login_button;
 
-    login_button = findViewById(R.id.login_button);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        login_button = findViewById(R.id.login_button);
+
+        login_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HomeAdmin.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 
 
-        login_button.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            login_button.setBackgroundResource(R.drawable.loginbuttonclicked);
-            Intent intent = new Intent(getApplicationContext(), HomeAdmin.class);
-            startActivity(intent);
-            finish();
-        }
-    });
+
 }
