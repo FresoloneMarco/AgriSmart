@@ -1,22 +1,17 @@
 package com.example.agrismart;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class HomeAdmin extends AppCompatActivity{
+public class HomeAdmin extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -38,4 +33,34 @@ public class HomeAdmin extends AppCompatActivity{
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        if(menuItem.getItemId()==R.id.home_btn){
+
+        }
+
+        if(menuItem.getItemId()==R.id.magazzino_btn){
+
+        }
+
+        if(menuItem.getItemId()==R.id.membri_btn){
+
+        }
+
+        if(menuItem.getItemId()==R.id.serre_btn){
+
+        }
+
+        if(menuItem.getItemId()==R.id.raccolto_btn){
+
+        }
+
+        if(menuItem.getItemId()==R.id.turni_btn){
+
+        }
+        return true;
+    }
+
 }
