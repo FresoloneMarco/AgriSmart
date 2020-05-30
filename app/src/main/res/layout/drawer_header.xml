@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:background="#1B5E20">
+    android:background="#1B5E20"
+    android:padding="16dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/Titolo"
