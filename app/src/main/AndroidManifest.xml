@@ -13,8 +13,6 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".HomeUser"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".HomeAdmin"
-            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

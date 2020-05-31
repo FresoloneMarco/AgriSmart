@@ -38,9 +38,9 @@ public class Login extends AppCompatActivity {
                 String utente=user.getText().toString();
 
                 if(utente.equalsIgnoreCase("admin")) {
-                    Intent intent = new Intent(getApplicationContext(), HomeAdmin.class);
+                    /*Intent intent = new Intent(getApplicationContext(), HomeAdmin.class);
                     startActivity(intent);
-                    finish();
+                    finish();*/
                 }
                 else {
                     Intent intent = new Intent(getApplicationContext(), HomeUser.class);
