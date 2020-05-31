@@ -9,65 +9,80 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.agrismart.fragments.MagazzinoFragment;
+import com.example.agrismart.fragments.MansioniFragment;
+import com.example.agrismart.fragments.MembriFragment;
+import com.example.agrismart.fragments.RaccoltoFragment;
+import com.example.agrismart.fragments.SerreFragment;
 import com.google.android.material.navigation.NavigationView;
 
-public class HomeUser extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class HomeUser extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    DrawerLayout drawerLayout;
-    ActionBarDrawerToggle actionBarDrawerToggle;
-    Toolbar toolbar;
-    NavigationView navigationView;
+    private DrawerLayout drawer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu_layout2);
-        toolbar=findViewById(R.id.toolbar);
-        drawerLayout= findViewById(R.id.drawer2);
-        navigationView=findViewById(R.id.navigationView);
+        setContentView(R.layout.menu_layout);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
-
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
-        actionBarDrawerToggle.syncState();
-
-
+        drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setCheckedItem(R.id.home_btn);
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-        drawerLayout.closeDrawer(GravityCompat.START);
-
-        if(menuItem.getItemId() == R.id.home_btn){
-            Intent intent = new Intent(getApplicationContext(), HomeUser.class);
-            startActivity(intent);
-
+        switch (menuItem.getItemId()) {
+            case R.id.home_btn:
+                Intent intent = new Intent(getApplicationContext(), HomeUser.class);
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.serre_btn:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new SerreFragment()).commit();
+                break;
+            case R.id.magazzino_btn:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new MagazzinoFragment()).commit();
+                break;
+            case R.id.membri_btn:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new MembriFragment()).commit();
+                break;
+            case R.id.raccolto_btn:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new RaccoltoFragment()).commit();
+                break;
+            case R.id.turni_btn:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new MansioniFragment()).commit();
+                break;
         }
 
-        if(menuItem.getItemId()==R.id.magazzino_btn){
-            Intent intent = new Intent(getApplicationContext(), Serre.class);
-            startActivity(intent);
-        }
-
-        if(menuItem.getItemId()==R.id.membri_btn){
-
-        }
-
-        if(menuItem.getItemId()==R.id.serre_btn){
-
-        }
-
-        if(menuItem.getItemId()==R.id.raccolto_btn){
-
-        }
-
-        if(menuItem.getItemId()==R.id.turni_btn){
-
-        }
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 }
