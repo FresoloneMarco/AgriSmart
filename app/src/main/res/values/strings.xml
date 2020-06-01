@@ -3,4 +3,12 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="home">Home</string>
+
+        <string-array name="spinnerItems">
+            <item>-- Categoria</item>
+            <item>Concime</item>
+            <item>Trattamento</item>
+            <item>Seme</item>
+
+        </string-array>
 </resources>
