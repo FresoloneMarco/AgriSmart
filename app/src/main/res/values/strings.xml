@@ -9,6 +9,13 @@
             <item>Concime</item>
             <item>Trattamento</item>
             <item>Seme</item>
-
         </string-array>
+
+    <string-array name="spinnerItemsMansioni">
+        <item>-- Categoria</item>
+        <item>Irrigazione</item>
+        <item>Semina</item>
+        <item>Raccolto</item>
+    </string-array>
+
 </resources>
