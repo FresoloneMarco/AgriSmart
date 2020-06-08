@@ -2,6 +2,7 @@ package com.example.agrismart.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,24 +24,31 @@ public class MembriFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_membri, container, false);
         String[] membri;
         membri = new String[] { "Apicella", "Barone", "Civale" };
-        final ArrayList<String> listp = new ArrayList<String>();
-        for (int i = 0; i < membri.length; ++i) {
-            listp.add(membri[i]);
-        }
-        final ListView mylist = (ListView) getView().findViewById(R.id.listView1);
-        final ArrayAdapter <String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.fragment_membri, listp);
+
+
+        ListView mylist = (ListView) view.findViewById(R.id.listView1);
+        ArrayAdapter <String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, membri);
         mylist.setAdapter(adapter);
+
 
         mylist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adattatore, final View componente, int pos, long id){
+                final String nome = (String) adattatore.getItemAtPosition(pos);
+                Bundle bundle = new Bundle();
+                bundle.putString("nome", nome);
+                ProfiloFragment nuovo= new ProfiloFragment();
+                nuovo.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, nuovo).commit();
+
 
 
             }
         });
-        return inflater.inflate(R.layout.fragment_membri, container, false);
+        return view;
     }
 
 
