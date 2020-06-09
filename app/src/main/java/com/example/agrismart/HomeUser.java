@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -84,5 +85,16 @@ public class HomeUser extends AppCompatActivity implements NavigationView.OnNavi
             super.onBackPressed();
         }
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent miaActivity = new Intent(getApplicationContext(), HomeUser.class);
+            startActivity(miaActivity);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 
 }
