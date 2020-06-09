@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="MANSIONE"
-        android:textColor="#000000"
+        android:text="MANSIONE:"
+        android:textColor="#4CAF50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="DIPENDENTE"
-        android:textColor="#000000"
+        android:text="DIPENDENTE:"
+        android:textColor="#4CAF50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 
@@ -33,8 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="25dp"
-        android:text="SERRE"
-        android:textColor="#000000"
+        android:text="SERRA:"
+        android:textColor="#4CAF50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
@@ -44,8 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="DATA E ORARIO"
-        android:textColor="#000000"
+        android:text="DATA E ORARIO:"
+        android:textColor="#4CAF50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
@@ -59,54 +59,76 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
-    <ScrollView
+    <ListView
         android:id="@+id/scrollView2"
-        android:layout_width="374dp"
-        android:layout_height="147dp"
+        android:layout_width="349dp"
+        android:layout_height="145dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
 
-    <ScrollView
+    </ListView>
+
+    <ListView
         android:id="@+id/scrollView3"
-        android:layout_width="377dp"
-        android:layout_height="193dp"
+        android:layout_width="357dp"
+        android:layout_height="194dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+
+    </ListView>
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="36dp"
-        android:text="Button"
+        android:layout_width="89dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/quadrato"
+        android:text="DATA"
+        android:textColor="#54BC58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal2"
+        android:layout_width="69dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/quadrato"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textColor="#1C1B1B"
+        app:layout_constraintStart_toEndOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="24dp"
+        android:text="Fine"
+        android:textColor="#4CAF50"
+        app:layout_constraintStart_toEndOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="188dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="24dp"
         android:text="Inizio"
-        android:textColor="#000000"
+        android:textColor="#4CAF50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
@@ -114,45 +136,23 @@
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
         android:text="-"
         app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="52dp"
-        android:text="Fine"
-        android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
     <EditText
         android:id="@+id/editTextNumberDecimal"
         android:layout_width="69dp"
         android:layout_height="42dp"
-        android:layout_marginStart="71dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="14dp"
+        android:background="@drawable/quadrato"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-    <EditText
-        android:id="@+id/editTextNumberDecimal2"
-        android:layout_width="69dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="130dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView23"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

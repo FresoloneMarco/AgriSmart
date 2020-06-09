@@ -26,7 +26,7 @@ public class MembriFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_membri, container, false);
         String[] membri;
-        membri = new String[] { "Apicella", "Barone", "Civale" };
+        membri = new String[] { "Apicella Giovanni", "Barone Carlo", "Civale Giuseppe", "Rozzi Riccardo", "Rossi Rosario", "Visconti Anna" };
 
 
         ListView mylist = (ListView) view.findViewById(R.id.listView1);
