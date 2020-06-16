@@ -10,10 +10,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
+import com.example.agrismart.fragments.HomeFragment;
 import com.example.agrismart.fragments.MagazzinoFragment;
 import com.example.agrismart.fragments.MansioniFragment;
 import com.example.agrismart.fragments.MembriFragment;
@@ -47,9 +46,8 @@ public class HomeUser extends AppCompatActivity implements NavigationView.OnNavi
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.home_btn:
-                Intent intent = new Intent(getApplicationContext(), HomeUser.class);
-                startActivity(intent);
-                finish();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new HomeFragment()).commit();
                 break;
             case R.id.serre_btn:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
