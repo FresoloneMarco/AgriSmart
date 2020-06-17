@@ -11,6 +11,23 @@
             <item>Seme</item>
         </string-array>
 
+    <string-array name="spinnerItemsRacc">
+        <item>-- Ortaggi</item>
+        <item>Patate</item>
+        <item>Pomodori</item>
+        <item>Carote</item>
+        <item>Melenzane</item>
+    </string-array>
+
+    <string-array name="spinnerItemsSerre">
+        <item>-- Serre</item>
+        <item>Serra 1</item>
+        <item>Serra 2</item>
+        <item>Serra 3</item>
+        <item>Serra 4</item>
+        <item>Serra 5</item>
+    </string-array>
+
     <string-array name="spinnerItemsMansioni">
         <item>-- Categoria</item>
         <item>Irrigazione</item>
