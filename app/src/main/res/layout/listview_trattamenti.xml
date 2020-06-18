@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/nome_trattamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome Concime"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="1dp"
+        />
+
+    <TextView
+        android:id="@+id/qty_trattamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="quantità"
+        android:layout_marginRight="25dp"
+        android:textStyle="bold"
+        />
+
+    <ProgressBar
+        android:id="@+id/progress_trattamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        app:layout_constraintTop_toBottomOf="@id/nome_trattamento"
+        android:progressTint="#F81010"
+        android:secondaryProgressTint="#66F81010"
+        android:progress="60"
+        android:secondaryProgress="100"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
