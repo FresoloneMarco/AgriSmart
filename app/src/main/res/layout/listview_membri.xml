@@ -5,6 +5,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
+        android:id="@+id/space_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/cognome_dipendente"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
         android:id="@+id/cognome_dipendente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,7 +22,7 @@
         android:textSize="20dp"
         android:textColor="#000000"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/space_up"
         android:layout_marginTop="1dp"
         android:layout_marginLeft="5dp"
         />
@@ -35,9 +44,18 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@drawable/propic"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/space_up"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="5dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/nome_dipendente"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
