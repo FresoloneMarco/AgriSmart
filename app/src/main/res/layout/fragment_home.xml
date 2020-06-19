@@ -145,6 +145,8 @@
         android:backgroundTint="#FFFFFF"
         android:text="LEGGI"
         android:textColor="#8BC34A"
+
+
         />
 
     <Button
@@ -213,6 +215,7 @@
         android:backgroundTint="#FFFFFF"
         android:text="LEGGI"
         android:textColor="#8BC34A"
+
         />
 
     <Button

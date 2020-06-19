@@ -1,7 +1,9 @@
 package com.example.agrismart.fragments;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +20,12 @@ import com.example.agrismart.Seme;
 import com.example.agrismart.SemeListAdapter;
 import com.example.agrismart.Trattamento;
 import com.example.agrismart.TrattamentoListAdapter;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MagazzinoFragment extends Fragment {
     private ListView list,list2,list3;
@@ -31,39 +37,22 @@ public class MagazzinoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_magazzino, container, false);
-        concimi = new ArrayList<Concime>();
-        trattamenti = new ArrayList<Trattamento>();
-        semi = new ArrayList<Seme>();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+        Gson gson = new Gson();
+        String concimiJson = sharedPreferences.getString("concimi", "");
+        String trattamentiJson = sharedPreferences.getString("trattamenti", "");
+        String semiJson = sharedPreferences.getString("semi", "");
 
-        Seme s1 = new Seme ("Seme #1", 10, 10);
-        semi.add(s1);
-        semi.add(s1);
-        semi.add(s1);
-        semi.add(s1);
-        semi.add(s1);
-        semi.add(s1);
+        Type typeConcimi = new TypeToken<ArrayList<Concime>>() {}.getType();
+        Type typeSemi = new TypeToken<ArrayList<Seme>>() {}.getType();
+        Type typeTrattamenti = new TypeToken<ArrayList<Trattamento>>() {}.getType();
 
-        Trattamento t1 = new Trattamento("Trattamento #1", 10, 5);
-        Trattamento t2 = new Trattamento("Trattamento #2", 10, 2);
-        Trattamento t3 = new Trattamento("Trattamento #3", 10, 10);
 
-        trattamenti.add(t1);
-        trattamenti.add(t2);
-        trattamenti.add(t3);
-        trattamenti.add(t3);
-        trattamenti.add(t3);
-        trattamenti.add(t3);
 
-        Concime c1 = new Concime("Concime #1", 10, 5);
-        Concime c2 = new Concime("Concime #2", 20, 20);
-        Concime c3 = new Concime("Concime #3", 15, 5);
+        concimi = gson.fromJson(concimiJson, typeConcimi);
+        trattamenti = gson.fromJson(trattamentiJson, typeTrattamenti);
+        semi = gson.fromJson(semiJson, typeSemi);
 
-        concimi.add(c1);
-        concimi.add(c2);
-        concimi.add(c3);
-        concimi.add(c3);
-        concimi.add(c3);
-        concimi.add(c3);
 
         final ConcimeListAdapter adapter = new ConcimeListAdapter((Activity) view.getContext(), concimi);
         list = view.findViewById(R.id.concimi_lv);
