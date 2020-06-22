@@ -2,11 +2,16 @@ package com.example.agrismart;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
+
+import com.example.agrismart.fragments.ResocontoMansioneFragment;
 
 public class AlertDialog_CompletaMansione extends AppCompatDialogFragment {
     private String title;
@@ -14,7 +19,7 @@ public class AlertDialog_CompletaMansione extends AppCompatDialogFragment {
     private String button1;
     private String button2;
 
-    public AlertDialog_CompletaMansione(String title, String information, String button1, String button2){
+    public AlertDialog_CompletaMansione(String title, String information, String button1, String button2) {
         this.title = title;
         this.information = information;
         this.button1 = button1;
@@ -34,23 +39,27 @@ public class AlertDialog_CompletaMansione extends AppCompatDialogFragment {
 
                         }
                     });
-        }else{
+        } else {
             builder.setTitle(title)
                     .setMessage(information)
                     .setPositiveButton(button1, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
+                            ResocontoMansioneFragment.scelta(true);
                         }
                     })
                     .setNegativeButton(button2, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
+                            ResocontoMansioneFragment.scelta(false);
                         }
                     });
 
         }
         return builder.create();
     }
+
+
+
+
 }

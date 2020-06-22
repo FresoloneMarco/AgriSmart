@@ -24,7 +24,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/space_up"
         android:layout_marginTop="1dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="25dp"
         />
 
     <TextView
@@ -37,7 +37,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cognome_dipendente"
         android:layout_marginTop="1dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="25dp"
         />
 
     <ImageView
@@ -46,7 +46,7 @@
         android:background="@drawable/propic"
         app:layout_constraintTop_toBottomOf="@id/space_up"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="25dp"
         />
 
     <TextView

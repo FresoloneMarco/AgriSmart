@@ -27,6 +27,6 @@
         <item
             android:id="@+id/turni_btn"
             android:icon="@drawable/ic_skip_next_black_24dp"
-            android:title="Assegnazione mansioni" />
+            android:title="Mansioni" />
     </group>
 </menu>

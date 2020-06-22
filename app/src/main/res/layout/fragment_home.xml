@@ -13,7 +13,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/orariogiornaliero" />
+        app:srcCompat="@drawable/orariogiornaliero"
+        />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -25,8 +26,19 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:srcCompat="@drawable/giornalier" />
 
+    <ListView
+        android:id="@+id/listview_mansioni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imageView5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        />
+
     <!-- INIZIO CARD 1 -->
 
+    <!--
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="334dp"
@@ -91,10 +103,7 @@
         android:textColor="#8BC34A"
         />
 
-    <!-- FINE CARD 1 -->
 
-
-    <!-- INIZIO CARD 2 -->
 
     <ImageView
         android:id="@+id/imageView7"
@@ -162,9 +171,7 @@
         android:textColor="#8BC34A"
         />
 
-    <!-- FINE CARD 2 -->
 
-    <!-- INIZIO CARD 3 -->
 
     <ImageView
         android:id="@+id/imageView8"
@@ -231,7 +238,7 @@
         android:textColor="#8BC34A"
         />
 
-    <!-- FINE CARD 3 -->
+     -->
 
 
 

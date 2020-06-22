@@ -3,7 +3,9 @@ package com.example.agrismart.fragments;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Debug;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,21 +14,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.agrismart.AlertDialog;
 import com.example.agrismart.AlertDialog_CompletaMansione;
 import com.example.agrismart.Concime;
+import com.example.agrismart.Mansione;
 import com.example.agrismart.MyListAdapter;
 import com.example.agrismart.R;
 import com.example.agrismart.Risorse;
 import com.example.agrismart.RisorseListAdapter;
 import com.example.agrismart.Seme;
 import com.example.agrismart.Trattamento;
+import com.example.agrismart.Utente;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -35,21 +42,34 @@ import java.util.ArrayList;
 
 public class ResocontoMansioneFragment extends Fragment {
 
+    private TextView descrizione_tv;
     private Spinner spinner_risorse;
-    private ArrayList<Concime> concimi;
-    private ArrayList<Trattamento> trattamenti;
-    private ArrayList<Seme> semi;
+    private static ArrayList<Concime> concimi;
+    private static ArrayList<Trattamento> trattamenti;
+    private static ArrayList<Seme> semi;
+    private static ArrayList<Risorse> risorse;
     private ListView list;
     private Button addButton, consegnaButton;
     private EditText qty;
-    private Gson gson;
-    private SharedPreferences.Editor editor;
+    private static Gson gson;
+    private static SharedPreferences.Editor editor;
+    private static RisorseListAdapter risorseListAdapter;
+    public static boolean consegnato = false;
+    private Utente loggedUser;
+    private static View view;
+    private static String nomeMansione;
+
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_completa_mansione, container, false);
+        view = inflater.inflate(R.layout.fragment_completa_mansione, container, false);
         consegnaButton = view.findViewById(R.id.invia_consegna);
+        descrizione_tv = view.findViewById(R.id.descrizone_tv);
+        nomeMansione = this.getArguments().getString("nome");
+        String descrizione = this.getArguments().getString("descrizione");
+        descrizione_tv.setText(descrizione);
 
         /* RETRIEVE DATI DA SHARED PREFERENCES */
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.getContext());
@@ -90,9 +110,9 @@ public class ResocontoMansioneFragment extends Fragment {
         spinner_risorse.setAdapter(adapter);
 
 
-        final ArrayList<Risorse> risorse = new ArrayList<Risorse>();
+        risorse = new ArrayList<Risorse>();
         list = view.findViewById(R.id.listview_risorse);
-        final RisorseListAdapter risorseListAdapter = new RisorseListAdapter((Activity) view.getContext(), risorse);
+        risorseListAdapter = new RisorseListAdapter((Activity) view.getContext(), risorse);
         list.setAdapter(risorseListAdapter);
 
         addButton = view.findViewById(R.id.button_aggiungi);
@@ -137,15 +157,17 @@ public class ResocontoMansioneFragment extends Fragment {
             public void onClick(View v) {
                 AlertDialog_CompletaMansione alertDialog = new AlertDialog_CompletaMansione("Attenzione", "Completare la mansione ?", "Si", "No");
                 alertDialog.show(getFragmentManager(), "example dialog");
-                consegna(risorse);
             }
         });
+
+
+
 
 
         return view;
     }
 
-    public void consegna(ArrayList<Risorse> risorse) {
+    public static void consegna(ArrayList<Risorse> risorse) {
 
         int i = 0;
         for (Risorse r : risorse) {
@@ -185,7 +207,47 @@ public class ResocontoMansioneFragment extends Fragment {
             }
 
         }
+        risorse.clear();
+        risorseListAdapter.notifyDataSetChanged();
+        consegnato = true;
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+        gson = new Gson();
+        String loggedUserJson = sharedPreferences.getString("loggedUser", "");
+        Type typeUtente = new TypeToken<Utente>() {
+        }.getType();
+        Utente loggedUser = gson.fromJson(loggedUserJson, typeUtente);
+        int r = 0;
+        int j = 0;
+        for(Mansione m : loggedUser.getMansioni()){
+            if(m.getNome().equals(nomeMansione)){
+                r = j;
+            }
+            j++;
+        }
+        loggedUser.getMansioni().remove(r);
+        String jsonLoggedUser = gson.toJson(loggedUser);
+        editor.putString("loggedUser", jsonLoggedUser);
+        editor.commit();
+
+        FragmentActivity activity = (FragmentActivity)view.getContext();
+        FragmentManager manager = activity.getSupportFragmentManager();
+        HomeFragment nuovo = new HomeFragment();
+        manager.beginTransaction().replace(R.id.fragment_container, nuovo).commit();
     }
+
+
+    public static void scelta(Boolean scelta){
+        if (scelta == true) {
+            consegna(risorse);
+        } else {
+        }
+    }
+
+
+
+
+
+
 }
 
 
