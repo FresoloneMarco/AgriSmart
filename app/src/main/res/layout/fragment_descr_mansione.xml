@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/descrizone_tv"
-        android:layout_width="400dp"
+        android:layout_width="390dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/descrizione_label"
         app:layout_constraintLeft_toLeftOf="parent"

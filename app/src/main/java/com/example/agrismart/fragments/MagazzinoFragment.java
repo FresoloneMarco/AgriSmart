@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.agrismart.Concime;
@@ -37,6 +38,7 @@ public class MagazzinoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_magazzino, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Magazzino");
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.getContext());
         Gson gson = new Gson();
         String concimiJson = sharedPreferences.getString("concimi", "");

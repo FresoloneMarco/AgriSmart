@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -68,6 +69,7 @@ public class ResocontoMansioneFragment extends Fragment {
         consegnaButton = view.findViewById(R.id.invia_consegna);
         descrizione_tv = view.findViewById(R.id.descrizone_tv);
         nomeMansione = this.getArguments().getString("nome");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(nomeMansione);
         String descrizione = this.getArguments().getString("descrizione");
         descrizione_tv.setText(descrizione);
 

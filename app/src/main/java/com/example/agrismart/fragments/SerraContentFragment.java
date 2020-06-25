@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.agrismart.R;
@@ -24,6 +25,7 @@ public class SerraContentFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_serra_content, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(this.getArguments().getString("nome"));
         storico=view.findViewById(R.id.button7);
         irrigazione = view.findViewById(R.id.button4);
         areazione = view.findViewById(R.id.button6);

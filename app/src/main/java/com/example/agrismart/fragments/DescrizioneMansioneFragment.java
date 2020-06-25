@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.agrismart.R;
@@ -26,7 +27,7 @@ public class DescrizioneMansioneFragment extends Fragment {
 
         nome=this.getArguments().getString("nome");
         descrizione = this.getArguments().getString("descrizione");
-
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(nome);
         completa = view.findViewById(R.id.complete_button);
         descrizione_tv = view.findViewById(R.id.descrizone_tv);
 

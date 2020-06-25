@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ public class Login extends AppCompatActivity {
     private ArrayList<Utente> utenti;
     private Utente loggedUser;
     private Boolean loggable;
+    private CheckBox ricordami;
 
 
     @Override
@@ -39,6 +41,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        ricordami = findViewById(R.id.checkbox_ricordami);
         login_button = findViewById(R.id.login_button);
         user = findViewById(R.id.edit_text1);
         password = findViewById(R.id.edit_text2);
@@ -57,6 +60,10 @@ public class Login extends AppCompatActivity {
         utenti = gson.fromJson(utentiJson, typeUtenti);
         /* FINE RETRIEVE */
 
+        if(sharedPreferences.getString("remembered", "").equals("si")){
+            user.setText(sharedPreferences.getString("remembered_email", ""));
+            password.setText(sharedPreferences.getString("remembered_password", ""));
+        }
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +90,6 @@ public class Login extends AppCompatActivity {
                     }
 
                 } else {
-                    r_alert1.setVisibility(View.GONE);
                     loggable = false;
                     for (Utente u : utenti) {
                         if (user.getText().toString().equals(u.getEmail()) && password.getText().toString().equals(u.getPassword())) {
@@ -92,6 +98,12 @@ public class Login extends AppCompatActivity {
                             editor.putString("loggedUser", jsonLoggedUser);
                             editor.commit();
                             loggable = true;
+                            if(ricordami.isChecked()){
+                                editor.putString("remembered_email", user.getText().toString());
+                                editor.putString("remembered_password", password.getText().toString());
+                                editor.putString("remembered", "si");
+                                editor.commit();
+                            }
                                 Intent intent = new Intent(getApplicationContext(), HomeUser.class);
                                 startActivity(intent);
                                 finish();

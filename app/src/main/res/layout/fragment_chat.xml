@@ -6,25 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ListView
+        android:id="@+id/messaggi"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        />
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editText_messaggio"
         android:layout_width="286dp"
         android:layout_height="47dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="584dp"
         android:ems="10"
         android:hint="Messaggio"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@id/send_button"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="50dp"
+        />
 
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="69dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="576dp"
+    <ImageView
+        android:id="@+id/send_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/invia"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="25dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

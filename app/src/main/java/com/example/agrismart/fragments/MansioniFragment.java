@@ -15,6 +15,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 
@@ -29,6 +30,7 @@ public class MansioniFragment extends Fragment implements DatePickerDialog.OnDat
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mansioni, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Mansioni");
         ListView listView= (ListView) view.findViewById(R.id.scrollView2);
         String[] membri;
         membri = new String[] { "Apicella Giovanni", "Barone Carlo", "Civale Giuseppe", "Rozzi Riccardo", "Rossi Rosario", "Visconti Anna" };

@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.agrismart.R;
@@ -19,6 +20,7 @@ public class SerreFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_serre, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Serre");
         ListView listView= (ListView) view.findViewById(R.id.listaSerreView);
         String[] serre= new String[] {"Serra 1", "Serra 2", "Serra 3", "Serra 4", "Serra 5"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, serre);

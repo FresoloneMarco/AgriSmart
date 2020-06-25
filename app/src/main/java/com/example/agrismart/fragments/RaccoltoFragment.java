@@ -38,6 +38,7 @@ public class RaccoltoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_raccolto, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Raccolto");
         prodotti = new ArrayList<Products>();
         addButton = view.findViewById(R.id.button14);
         consegnaButton = view.findViewById(R.id.invia_consegna);
