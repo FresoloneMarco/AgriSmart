@@ -24,6 +24,7 @@ public class DescrizioneMansioneFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_descr_mansione, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowCustomEnabled(false);
 
         nome=this.getArguments().getString("nome");
         descrizione = this.getArguments().getString("descrizione");

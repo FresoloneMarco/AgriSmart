@@ -35,6 +35,8 @@ public class MembriFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_membri, container, false);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Membri");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowCustomEnabled(false);
+
         membri = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Membro m = new Membro("Dipendente " + i, "Cognome " + i);

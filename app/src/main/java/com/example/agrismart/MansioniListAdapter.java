@@ -73,8 +73,12 @@ public class MansioniListAdapter extends ArrayAdapter<Mansione>{
             @Override
             public void onClick(View v) {
                 FragmentManager fm = ((FragmentActivity)context).getSupportFragmentManager();
+                Bundle bundle = new Bundle();
+                bundle.putString("nome", "Serra 1");
                 SerraContentFragment nuovo= new SerraContentFragment();
+                nuovo.setArguments(bundle);
                 fm.beginTransaction().replace(R.id.fragment_container, nuovo).commit();
+
             }
         });
 

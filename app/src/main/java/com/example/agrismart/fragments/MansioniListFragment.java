@@ -42,6 +42,8 @@ public class MansioniListFragment extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mansionilist, container, false);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Mansioni");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowCustomEnabled(false);
+
         mansioni = new ArrayList<>();
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.getContext());
         gson = new Gson();
